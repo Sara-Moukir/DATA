@@ -27,7 +27,7 @@ size = comm.Get_size()
 print("size :", size)
 
 value_first = 0
-value_last = 5
+value_last = 2
 
 def unzip(path):
     with gzip.open(path) as f_in:
@@ -58,7 +58,7 @@ for x in range(4):
     print(rank, "config file parsed")
     # Define first and last iteration in xml file
     value_first = value_last 
-    value_last = value_first + 5
+    value_last = value_first + 2
         
     for first in tree.xpath("/config/module[@name='controler']/param[@name='firstIteration']"):
         first.attrib['value'] = str(value_first)
@@ -164,14 +164,14 @@ for x in range(4):
     bool_vec = np.greater(abs(tab_of_scores - vect_best_scores), vect_std)
 
     print("length bool_vec =", len(bool_vec))
-    for xx in range(len(bool_vec)):
-        if bool_vec[xx]:
+    #for xx in range(len(bool_vec)):
+     #   if bool_vec[xx]:
         
             #print("rank", str(rank), ":", "agent", str(xx+1), "needs plan of rank", str(vect_rank_best_scores[xx]))
             
-            f.xml_extractor(output_files[vect_rank_best_scores[xx]], unzipped_p, xx+1)
+      #      f.xml_extractor(output_files[vect_rank_best_scores[xx]], unzipped_p, xx+1)
 
-    zip(unzipped_p)
+    #zip(unzipped_p)
 
 
 
